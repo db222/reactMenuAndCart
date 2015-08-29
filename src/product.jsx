@@ -1,11 +1,30 @@
 var Product = React.createClass({
   handleClick : function(item) {
-    this.props.itemSelected(item)
+    var addItem = { name: item.name,
+                    price: item.price,
+                    quantity: 1 }
+    this.props.itemSelected(addItem)
   },
 
   render : function() {
-    return (
-      <span key={this.props.item} onClick={this.handleClick.bind(this, this.props.item)}>{this.props.item}</span>
+    var price = '$' + this.props.item.price.toFixed(2);
+    var item = this.props.item;
+    var quantityDisplay;
+    if(item.quantity) {
+          quantityDisplay = <span className='item-quantity'>{item.quantity}</span>
+    }
+
+    var descriptionDisplay;
+    if(item.description) {
+      descriptionDisplay = <span className='item-description'>{item.description}</span>
+    }
+    return ( 
+      <span className='item-container container' onClick={this.handleClick.bind(this, this.props.item)}>
+        <span className='item-title'>{item.name}</span>
+        <span className='item-price'>{price}</span>
+        {quantityDisplay}
+        {descriptionDisplay}
+      </span>
     )
   }
 });
@@ -20,7 +39,7 @@ var List = React.createClass({
           return ( 
             <li>
             {
-              <Product item={menuItem} itemSelected={context.props.clickHandler}/>
+              <Product key={menuItem.name} item={menuItem} itemSelected={context.props.clickHandler}/>
             }
             </li>
           )

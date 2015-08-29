@@ -65,7 +65,7 @@ table {
   font-size: 24px;
   border-bottom-color: #494949;
   border-bottom-style: solid;
-  border-bottom-size : 2px;
+  border-bottom-width : 2px;
 }
 
 #menu-container {
@@ -103,12 +103,11 @@ table {
 }
 
 #menu-container ul li:hover {
-  background-color: #494949;
-  color: #fff;
+  background-color: #DDD;
 }
 
-span {
-  float: left;
+#menu-container .item-description {
+  color: #999;
 }
 
 
@@ -136,6 +135,9 @@ span {
   margin:15px 15px 0 0;
 }
 
+#cart-container ul li:hover {
+  background-color: #DDD;
+}
 
 .submit-button {
   margin : 10px;
@@ -143,4 +145,27 @@ span {
   color : #fff;
   width: 90%;
   height: 32px;
+}
+
+.item-container span {
+  float:left;
+  width: 100%;
+  display:block;
+}
+
+#register-container {
+  margin: 5px;
+}
+
+#register-container span {
+  display: block;
+  width: 100%;
+  background-color: #797979;
+  border-bottom-color: #494949;
+  border-bottom-style: dashed;
+  border-bottom-width: 2px;
+}
+
+#register-container p {
+  text-align: right;
 }
