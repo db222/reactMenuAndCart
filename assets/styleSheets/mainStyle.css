@@ -61,7 +61,7 @@ table {
   *zoom: 1;
 }
 
-#main-content {
+#menu-container {
   padding: 10px;
   margin: 10px;
   border-width: 2px;
@@ -91,9 +91,16 @@ ul{
 
 ul li{
   float:left;
-  width:90px;
+  width: 30%;
   margin:15px 15px 0 0;
+  height: 90px;
 }
+
 ul li:nth-child(3){
   margin-right:0;
+}
+
+ul li:hover {
+  background-color: #494949;
+  color: #fff;
 }

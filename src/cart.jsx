@@ -1,33 +1,25 @@
-function maybe(e) {
-  alert('storage event! woo woo!')
-}
-
 var Cart = React.createClass({
   getInitialState: function() {
-    console.log('initial state!')
     return {
       items: []
     };
   },
 
-  componentDidMount: function() {
-    console.log('did mount');
-    window.addEventListener('storage', maybe, false);
-  },
-
-  handleStorageChange: function(e) {
-    console.log("did this happen?");
-    if(!e) {
-      e = window.event;
-    }
-
-    if(e.key && e.key.search('fluc_')) {
-      if(e.newValue) {
-        this.addItem(e.newValue);
-      } else {
-        this.removeItem(e.oldValue);
+  loadLocalStorage: function() {
+    var toAddToCart = [];
+    for(var element in localStorage) {
+      if(element.search('fluc_') !== -1) {
+        var item = JSON.parse(localStorage[element]);
+        toAddToCart.push(item);
       }
     }
+    this.setState({
+      items: toAddToCart
+    });
+  },
+
+  componentWillMount: function() {
+    this.loadLocalStorage();
   },
 
   addItem : function(item) {
@@ -35,7 +27,6 @@ var Cart = React.createClass({
   },
 
   removeItem : function(item) {
-
   },
 
   flucYeah: function() {
@@ -46,10 +37,9 @@ var Cart = React.createClass({
     return (
       <div id='cart'>
         <h1>Cart!</h1>
+        <List items={this.state.items}/>
         <p onClick={this.flucYeah}>Finished</p>
       </div>
     )
   }
 });
-
-React.render(<Cart/>, document.getElementById('cart-container'));
