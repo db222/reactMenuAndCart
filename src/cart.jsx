@@ -5,10 +5,10 @@ var Cart = React.createClass({
 
   render: function() {
     return (
-      <div id='cart'>
-        <h1>Cart!</h1>
+      <div id='cart' className='container'>
+        <div className='container-header'> Cart </div>
         <List items={this.props.items}/>
-        <p onClick={this.flucYeah}>Finished</p>
+        <button className='submit-button' type="button" onClick={this.flucYeah}>Finished</button>
       </div>
     )
   }

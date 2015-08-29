@@ -61,6 +61,13 @@ table {
   *zoom: 1;
 }
 
+.container-header {
+  font-size: 24px;
+  border-bottom-color: #494949;
+  border-bottom-style: solid;
+  border-bottom-size : 2px;
+}
+
 #menu-container {
   padding: 10px;
   margin: 10px;
@@ -70,6 +77,40 @@ table {
   width: 60%;
   float: left;
 }
+
+#menu-label {
+  font-size: 16px;
+  display: block;
+}
+
+#menu-container ul{
+  width:100%;
+  list-style:none;
+  padding:0;
+  text-align:center;
+  overflow:auto;
+}
+
+#menu-container ul li{
+  float:left;
+  width: 30%;
+  margin:15px 15px 0 0;
+  height: 90px;
+}
+
+#menu-container ul li:nth-child(3){
+  margin-right:0;
+}
+
+#menu-container ul li:hover {
+  background-color: #494949;
+  color: #fff;
+}
+
+span {
+  float: left;
+}
+
 
 #cart-container {
   padding: 10px;
@@ -81,7 +122,7 @@ table {
   float:right;
 }
 
-ul{
+#cart-container ul{
   width:100%;
   list-style:none;
   padding:0;
@@ -89,18 +130,17 @@ ul{
   overflow:auto;
 }
 
-ul li{
+#cart-container ul li{
   float:left;
-  width: 30%;
+  width: 100%;
   margin:15px 15px 0 0;
-  height: 90px;
 }
 
-ul li:nth-child(3){
-  margin-right:0;
-}
 
-ul li:hover {
-  background-color: #494949;
-  color: #fff;
+.submit-button {
+  margin : 10px;
+  background-color: #2048B4;
+  color : #fff;
+  width: 90%;
+  height: 32px;
 }
