@@ -1,16 +1,16 @@
 var Product = React.createClass({
+  handleClick : function(item) {
+    this.props.itemSelected(item)
+  },
+
   render : function() {
     return (
-      <span key={this.props.item}>{this.props.item}</span>
+      <span key={this.props.item} onClick={this.handleClick.bind(this, this.props.item)}>{this.props.item}</span>
     )
   }
 });
 
 var List = React.createClass({
-  addToCart : function(item) {
-    localStorage.setItem('fluc_'+item, JSON.stringify(item));
-  },
-
   render: function(){
     var context = this;
     return (
@@ -20,7 +20,7 @@ var List = React.createClass({
           return ( 
             <li>
             {
-              <Product item={menuItem}/>
+              <Product item={menuItem} itemSelected={context.props.clickHandler}/>
             }
             </li>
           )
