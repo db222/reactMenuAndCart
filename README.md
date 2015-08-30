@@ -16,7 +16,7 @@
   <li>from here open the index.html in a browser and you're good to go</li>
   <li>click items in the menu area to add to the cart and click item from the cart to remove them</li>
 
-# Explanation of code structure
+## Explanation of code structure
 
 Using reactJS I created 6 components. The ShoppingInterface is the parent of the entire hierarchy, it directly owns the menu, cart, and register components. The menu and cart each own their individual List component which is comprised of product components. 
 
