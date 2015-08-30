@@ -87,7 +87,6 @@ table {
   width:100%;
   list-style:none;
   padding:0;
-  text-align:center;
   overflow:auto;
 }
 
@@ -110,6 +109,17 @@ table {
   color: #999;
 }
 
+#menu-container ul li:hover span {
+  text-decoration: underline;
+}
+
+.item-container span {
+  float:left;
+  width: 100%;
+  display:block;
+  text-align: left;
+  padding: 0 0 2px 0;
+}
 
 #cart-container {
   padding: 10px;
@@ -147,14 +157,9 @@ table {
   height: 32px;
 }
 
-.item-container span {
-  float:left;
-  width: 100%;
-  display:block;
-}
 
 #register-container {
-  margin: 5px;
+  margin: 15px;
 }
 
 #register-container span {
@@ -164,6 +169,7 @@ table {
   border-bottom-color: #494949;
   border-bottom-style: dashed;
   border-bottom-width: 2px;
+  padding: 3px;
 }
 
 #register-container p {
