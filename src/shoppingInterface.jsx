@@ -13,16 +13,19 @@ var mockData = [
         {name : "Bear",        price : 15.14, quantity : 0, description: 'Delicious bear....'},
       ];
 
+//parent React component over the menu, cart, and register
 var ShoppingInterface = React.createClass({
   getInitialState : function() {
+    //pull any items that might have been in a previous visit to the site
     var existingCartItems = this.loadLocalStorage();
-
+    //sets the initial stat with a menu and a cart filled with localStorage menu item
     return {
       menuItems: mockData,
       cartItems: existingCartItems
     };
   },
 
+  //handles updating the cart cache 
   addToCart : function(item) {
     if(this.state.cartItems.hasOwnProperty(item.name)) {
       this.state.cartItems[item.name].quantity += item.quantity;
@@ -36,8 +39,8 @@ var ShoppingInterface = React.createClass({
     });
   },
 
+  //handles removing an item from the cart cache
   removeFromCart : function(item) {
-    
     this.state.cartItems[item.name].quantity -= 1;
     var remain = this.state.cartItems[item.name].quantity;
     if(remain <= 0) {
@@ -51,11 +54,13 @@ var ShoppingInterface = React.createClass({
     return remain;
   },
 
+  //updates the cart cache and local storage to reflect added item from menu
   handleSelectedMenuItem : function(item) {
     this.addToCart(item);
     localStorage.setItem('fluc_'+ item.name, JSON.stringify(this.state.cartItems[item.name]));
   },
 
+  //updates the cart cache and local storage to reflect removed item from cart
   handleSelectedCartItem : function(item) {
     console.log(item);
     if(this.removeFromCart(item) <= 0) {
@@ -63,10 +68,11 @@ var ShoppingInterface = React.createClass({
     }
   },
 
+  //helper for creating the cache based off the local storage when page loads
   loadLocalStorage : function() {
     var itemsPreviouslyInCart = {};
     for(var element in localStorage) {
-      if(element.search('fluc_') !== -1) {
+      if(element.search('fluc_') !== -1) { // check to see if its an item of ours
         var item = JSON.parse(localStorage[element]);
         itemsPreviouslyInCart[item.name] = item;
       }
@@ -74,13 +80,14 @@ var ShoppingInterface = React.createClass({
     return itemsPreviouslyInCart;
   },
 
+  //renders the shopping interface and the children of it (menu,cart,register)
   render : function() {
     var cartItems = [];
     for(var i in this.state.cartItems) {
       cartItems.push(this.state.cartItems[i]);
     }
     return (
-      <div class='vendor-banner'>
+      <div className='shopInterface-container'>
         <div id='menu-container'>
           <MenuItems items={this.state.menuItems} menuItemSelected={this.handleSelectedMenuItem.bind(this)}/>
         </div>
@@ -93,4 +100,5 @@ var ShoppingInterface = React.createClass({
   }
 });
 
+//create the shop interface and render it to the dom element with the id of 'main-content'
 React.render(<ShoppingInterface/>, document.getElementById('main-content'));

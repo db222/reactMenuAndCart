@@ -1,3 +1,4 @@
+//react component handles rendering what the cart contains
 var Cart = React.createClass({
   render: function() {
     return (

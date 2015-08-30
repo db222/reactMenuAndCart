@@ -1,12 +1,15 @@
+//the component handles calculating the totals cost of purchase, and displaying thoses totals
 var Register = React.createClass({
             flucYeah: function() {
     window.alert("Fluc Yeah!");
   },
 
   render : function() {
+      //use reduce to calculate subtotal
       var subtotal = this.props.items.reduce(function(previousCost, currentItem) {
           return previousCost + currentItem.price * currentItem.quantity;
         }, 0);
+      //create total
       var total = this.props.tax * subtotal + subtotal;
     return (
       <div id='register-container'>

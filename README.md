@@ -1,7 +1,7 @@
 Visit us at http://letsjourney.herokuapp.com
 # react Basic Menu and Cart
 
-**A implementation of a basic restraunt checkout system.
+**A implementation of a basic restaurant checkout system.
 
 <ol> 
 <li> Add and remove items to the cart </li>
