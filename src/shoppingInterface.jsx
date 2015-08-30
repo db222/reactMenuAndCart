@@ -10,6 +10,7 @@ var mockData = [
         {name : "Egg Roll",    price : 1.15,  quantity : 0, description: 'A delicious egg roll....'},
         {name : "Venison",     price : 12.00, quantity : 0, description: 'Delicious venison....'},
         {name : "Gator",       price : 13.14, quantity : 0, description: 'Delicious gator....'},
+        {name : "Bear",        price : 15.14, quantity : 0, description: 'Delicious bear....'},
       ];
 
 var ShoppingInterface = React.createClass({
